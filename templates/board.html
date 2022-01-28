@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Board{% endblock %}
+{% block content %}
+
+<h1>Play Boggle!</h1>
+
+<div class="game-stats">
+    <div class="flex-col">
+        <div>
+            Score: <span id="score">0</span>
+        </div>
+        <div>
+            Timer: <span id="timer">1:00</span>
+        </div>
+    </div>
+
+    <div class="flex-col">
+        <div>
+            High Score: 
+            <span id="high-score">{{high_score}}</span>
+        </div>
+        <div>
+            Game # <span id="game-num">{{game_num}}</span>
+        </div>
+    </div>
+</div>
+<div class="messages">
+    <div id="game-over">Game Over! Replay?</div>
+</div>
+
+<div class="game">
+    <table id="board">
+        {% for row in board %}
+        <tr>
+            {% for char in row %}
+            <td>{{char}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="messages">
+    <div id="ok"></div>
+    <div id="no"></div>
+</div>
+
+<form id="get-guess" action="">
+    <label for="guess"></label>
+    <input type="text" name="guess" id="guess" minlength="1" placeholder="guess">
+    <button>Submit</button>
+</form>
+
+<div id="played-words">
+    
+</div>
+    
+
+{% endblock %}
